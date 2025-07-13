@@ -14,7 +14,8 @@ const createTeam = async (name, playerIds, userId) => {
     throw new Error(validation.message);
   }
 
-  return await teamDao.createTeam({ name, userId }, players);
+  const team = await teamDao.createTeam({ name, userId }, players);
+  return await teamDao.findTeamById(team.id, userId); // Re-fetch to include players
 };
 
 const updateTeam = async (teamId, name, playerIds, userId) => {

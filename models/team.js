@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: 'teamId',
         otherKey: 'playerId',
         as: 'players',
-      });
+    });
     }
   }
   Team.init({

@@ -5,7 +5,7 @@ const createTeam = async (req, res) => {
     const { name, players: playerIds } = req.body;
     const { userId } = req.user;
     const team = await teamService.createTeam(name, playerIds, userId);
-    res.status(201).json({ message: 'Team created successfully', team });
+    res.status(201).json(team);
   } catch (error) {
     if (
       error.message === 'One or more players not found.' ||
@@ -23,7 +23,7 @@ const updateTeam = async (req, res) => {
     const { userId } = req.user;
     const { id } = req.params;
     const team = await teamService.updateTeam(id, name, playerIds, userId);
-    res.json({ message: 'Team updated successfully', team });
+    res.json(team);
   } catch (error) {
     if (error.message === 'Team not found') {
       return res.status(404).json({ error: error.message });

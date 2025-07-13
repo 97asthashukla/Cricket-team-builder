@@ -17,12 +17,12 @@ This is a RESTful API for a fantasy cricket team builder that allows users to cr
 
 3. **Set up the database:**
    - The application uses SQLite and will create a `development.sqlite` file in the project root.
+   
    - Run migrations and seeders:
      ```bash
      npx sequelize-cli db:migrate
      npx sequelize-cli db:seed:all
      ```
-
 4. **Start the server:**
    ```bash
    npm start

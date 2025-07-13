@@ -13,7 +13,13 @@ module.exports = {
         type: Sequelize.STRING
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users', // Name of the target table
+          key: 'id', // Key in the target table that we're referencing
+        },
+        onUpdate: 'CASCADE', // Action to take on update
+        onDelete: 'CASCADE', // Action to take on delete
       },
       createdAt: {
         allowNull: false,
